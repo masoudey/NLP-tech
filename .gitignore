@@ -1,0 +1,8 @@
+# ignore trained model checkpoints and caches
+**/results/
+**/models/
+**/checkpoint-*/
+**/*.safetensors
+**/*.pt
+**/*.bin
+**/*.pth
