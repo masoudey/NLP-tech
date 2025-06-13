@@ -238,9 +238,9 @@ def main():
 
     if not ckpts:
         print("Training DistilBERT...")
-        # trainer.train()
-        # trainer.save_model(results_dir)
-        # tokenizer.save_pretrained(results_dir)
+        trainer.train()
+        trainer.save_model(results_dir)
+        tokenizer.save_pretrained(results_dir)
 
     eval_results = trainer.evaluate()
     print("DistilBERT evaluation:", eval_results)
