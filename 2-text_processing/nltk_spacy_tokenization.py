@@ -28,6 +28,7 @@ nltk_lemmatized = [[lemmatizer.lemmatize(word) for word in tokens] for tokens in
 nlp = spacy.load("en_core_web_sm")
 spacy_docs = [nlp(tweet) for tweet in tweets]
 spacy_tokens = [[token.text for token in doc] for doc in spacy_docs]
+spacy_stemmed = [[token.lemma_ for token in doc] for doc in spacy_docs]
 spacy_lemmatized = [[token.lemma_ for token in doc] for doc in spacy_docs]
 
 # Ensure output directory exists
@@ -37,6 +38,8 @@ pd.DataFrame({
     "original": tweets,
     "nltk_tokens": nltk_tokens,
     "nltk_lemmas": nltk_lemmatized,
+    "nltk_stemmed": nltk_stemmed,
     "spacy_tokens": spacy_tokens,
-    "spacy_lemmas": spacy_lemmatized
+    "spacy_lemmas": spacy_lemmatized,
+    "spacy_stemmed": spacy_stemmed
 }).to_csv("data/token_results.csv", index=False)
